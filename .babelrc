@@ -1,0 +1,7 @@
+{
+    "presets": [
+      ["es2015","state-0"]
+    ],
+    "plugins": ["transform-runtime","transform-object-rest-spread","syntax-dynamic-import","transform-vue-jsx"]
+  }
+  

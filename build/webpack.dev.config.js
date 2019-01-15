@@ -3,12 +3,16 @@ const htmlwebpackplugin = require('html-webpack-plugin') //模板
 const cleanwebpackplugin = require('clean-webpack-plugin')//清除dist
 const optimizecss = require('optimize-css-assets-webpack-plugin')//压缩css
 const minicssextractplugin = require('mini-css-extract-plugin')//抽取css
+const VueLoaderPlugin = require('vue-loader/lib/plugin')//vue-loader-plugin
+const path = require('path')
+const webpack = require('webpack')
 module.exports = {
     mode:"development",
-    entry: path.join(__dirname + 'index.js'),
+    entry: path.join(__dirname + '/../src/index.js'),
     output: {
-        filename: '[name].js',
-        path: path.join(__dirnmae + '../dist'),
+        filename: 'js/[name].[hash].js',
+        chunkFilename:'js/[name].[hash].js',
+        path: path.join(__dirname + '../dist'),
         publicPath: '/'
     },
     module: {
@@ -27,40 +31,26 @@ module.exports = {
 				test: /\.less$/,
 				exclude: /node_modules/,
 				use: [
-					require.resolve("style-loader"),
-					{
-						loader: require.resolve("css-loader"),
-						options: {
-							modules: true,
-							localIndetName:"[name]__[local]___[hash:base64:5]"
-						}
-					}, {
-						loader: require.resolve("less-loader")
-					}
+                    require.resolve("style-loader"),
+                    require.resolve("css-loader"),
+                    require.resolve("less-loader")
 				],
 			},
+            {
+				test: /\.css$/,
+				use: [
+                    'style-loader',
+					minicssextractplugin.loader,
+					"css-loader",
+				]
+			},
 			{
-				test: /\.less$/,
-				include: /node_modules/,
+				test: /\.scss$/,
+				exclude: /node_moduels/,
 				use: [
 					require.resolve("style-loader"),
 					require.resolve("css-loader"),
-					{
-						loader: "less-loader",
-						options: {
-							modifyVars,
-							javascriptEnabled: true,
-						}
-					}
-				],
-            },
-            {
-				test: /\.css$/,
-				exclude: /node_moduels/,
-				use: [
-					'style-loader',
-					minicssextractplugin.loader,
-					"css-loader"
+					require.resolve("sass-loader"),
 				]
             },
             {
@@ -73,7 +63,6 @@ module.exports = {
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-				exclude: /node_modules/,
 				loader: "file-loader",
 			}
         ]
@@ -94,6 +83,7 @@ module.exports = {
 				verbose: true,
 				dry: false
 			}),
+		new VueLoaderPlugin()
     ],
     devtool: '#eval-source-map',
     resolve: {
@@ -101,7 +91,7 @@ module.exports = {
             '@': path.join(__dirname, '../src'),
             'vue$': 'vue/dist/vue.js'
         },
-        extends:['.js', '.vue','.css','.less']
+        extensions:['.js', '.vue','.css','.less']
     },
     devServer:{
         open:true,
