@@ -6,9 +6,10 @@ import App from '@/App'
 import store from '@/store'
 import router from '@/router'
 console.info(router)
+console.info(store)
 export default new Vue({
     el: '#app',
-    store,
-    router,
     render: h => h(App),
+    store,
+    router
 })

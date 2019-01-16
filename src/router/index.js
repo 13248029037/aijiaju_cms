@@ -7,27 +7,27 @@ const Shop =  resolve => require(['../container/shop/index.vue'], resolve)
 export default new VueRouter({
     routes:[
         {
-            path:'/home',
+            path:'/manager/home',
             components:{body:Home},
             children:[]
         },
         {
-            path:'/car',
+            path:'/manager/car',
             components:{body:Car},
             children:[]
         },
         {
-            path:'/shop',
+            path:'/manager/shop',
             components:{body:Shop}, 
             children:[]
         },
         {
             path: '/',
-            redirect: '/home'
+            redirect: '/manager/home'
         },
         {
             path: '*',
-            redirect: '/home'
+            redirect: '/manager/home'
         },
     ]
 })

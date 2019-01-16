@@ -1,19 +1,22 @@
-import Vue from 'Vue'
-import Vuex from 'Vuex'
+import Vue from 'vue'
+import Vuex from 'vuex'
 Vue.use(Vuex)
-
-
 export default new Vuex.Store({
     state:{
-
+        isBreadToggle: false,//面包导航
     },
-    actions:{
-
+    actions: {
+        setIsBreadToggle({commit}, isBreadToggle) {
+            console.info(isBreadToggle,'isBreadToggleisBreadToggle')
+            commit('setIsBreadToggle', isBreadToggle)
+        },
     },
-    mutations:{
-
+    mutations: {
+        setIsBreadToggle(state, isBreadToggle) {
+            state.isBreadToggle = isBreadToggle
+        },
     },
-    getters:{
-
+    getters: {
+        isBreadToggle: s => s.isBreadToggle
     }
 })

@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="content">
 home
  </div>
 </template>
@@ -18,6 +18,9 @@ home
 </script>
 
 <style lang='less' scoped>
-
+ .content{
+   min-height: 500px;
+   background-color:#f6b01c;
+ }
  
 </style>

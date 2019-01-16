@@ -1,58 +1,60 @@
 <template>
-    <div class="bgc">
-        <!-- <el-Button>爱家</el-Button> -->
-        <router-view name="body"></router-view>
-        <!-- <div class="dd">
-
+    <div class="wrap">
+        <Nav></Nav>
+        <Bread></Bread>
+        <div id="contentApp"  :class="{'marginLeft':isBreadToggle}" :style="{'minHeight':height}">
+            <router-view name="body"></router-view>
+            <!-- <div class="item">sdsfdsf</div> -->
         </div>
-        <div class="ccc">
 
-        </div>
-        <div class="fff">
-
-        </div>
-        <div class="yy">
-
-        </div>
-        <div class="zz">
-
-        </div> -->
     </div>
 
 </template>
 
 <script>
+import Nav from '@/component/nav'
+import Bread from '@/component/bread'
+import {mapGetters,mapActions} from 'vuex'
 export default {
     data() {
-        return {};
+        return {
+            height:''
+        }
     },
-    components: {}
+    methods:{
+        setHeight () {
+            console.info(document.documentElement.clientHeight)
+           this.height =  document.documentElement.clientHeight - 80 +'px'
+        }
+    },
+    components: {
+        Nav,
+        Bread
+    },
+    computed: {
+        ...mapGetters(['isBreadToggle'])
+    },
+    mounted() {
+        window.addEventListener('resize',()=>{
+            this.setHeight()
+        })
+        this.setHeight();
+    }
 };
 </script>
 
 <style lang='less' scoped>
-.bgc {
-    // background-color: rgb(204, 173, 33);
-    height: 200px;
+#contentApp{
+    margin-top: 60px;
+    margin-left:200px;
+    background-color: #fff;
+    transition: all ease-in-out .3s;
+    padding:10px;
+    .item{
+        height:600px;
+    }
 }
-.ddd {
-    background-color: #a56935;
-    height: 200px;
-}
-.ccc {
-    background-color: #994e2f;
-    height: 200px;
-}
-.fff {
-    background-color: #994e2f;
-    height: 200px;
-}
-.yy {
-    background-color: #f6b01c;
-    height: 200px;
-}
-.zz {
-    background-color: #ba742f;
-    height: 200px;
+.marginLeft{
+      margin-left:64px;
 }
 </style>

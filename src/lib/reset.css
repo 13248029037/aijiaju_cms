@@ -43,5 +43,50 @@ table {
 }
 body{
     background-color: #f0f2f5;
-    color:#333 !important;
+    color:#666 !important;
 }
+.el-menu-item.is-active {
+	color:#fff !important;
+	background-color:#974c2d !important;
+}
+.el-menu-item-group__title {
+    padding: 0px 0px 0px 20px !important;
+}
+.el-menu--popup {
+    padding:0 !important;
+}
+.el-menu {
+    border-right: solid 0px #e6e6e6 !important;
+}
+.horizontal-collapse-transition{
+	transition: all ease-in-out .3s !important;
+	-webkit-transition: all ease-in-out .3s !important;
+	-moz-transition: all ease-in-out .3s !important;
+	-ms-transition: all ease-in-out .3s !important;
+	-o-transition: all ease-in-out .3s !important;
+}
+.topnav_box::-webkit-scrollbar{
+    width: 8px;
+	height:8px;
+    background-color: #F5F5F5;
+}  
+.topnav_box::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 8px #ccc;
+	border-radius: 10px;
+	background-color: #F5F5F5;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+.topnav_box::-webkit-scrollbar-thumb
+{
+	border-radius:5px;
+	box-shadow: inset 0 0 3px#ccc;
+	background-color: #ccc;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-o-border-radius:5px;
+}
+@import './iconfont/iconfont.css'
