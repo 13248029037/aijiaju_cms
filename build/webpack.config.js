@@ -14,7 +14,7 @@ module.exports = {
         filename: 'js/[name].[chunkhash].js',
         chunkFilename:'js/[name].[chunkhash].js',
         path: path.join(__dirname + '/../dist'),
-        publicPath: '/'
+        publicPath: '/aijiaju_cms/dist/'
     },
     module: {
         rules:[
