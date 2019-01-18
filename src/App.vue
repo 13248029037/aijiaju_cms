@@ -1,30 +1,30 @@
 <template>
-    <div class="wrap">
+    <div class="wrap" v-loading.fullscreen.lock="isLoading"  element-loading-text="数据拼命加载中" element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0.4)">
         <Nav></Nav>
         <Bread></Bread>
-        <div id="contentApp"  :class="{'marginLeft':isBreadToggle}" :style="{'minHeight':height}">
+        <div id="contentApp" :style="{'minHeight':height}" :class="{'contentApp':true,'marginLeft':isBreadToggle}">
             <router-view name="body"></router-view>
             <!-- <div class="item">sdsfdsf</div> -->
         </div>
-
     </div>
-
 </template>
 
 <script>
-import Nav from '@/component/nav'
-import Bread from '@/component/bread'
-import {mapGetters,mapActions} from 'vuex'
+import Nav from "@/component/nav";
+import Bread from "@/component/bread";
+import { mapGetters, mapActions } from "vuex";
+import Store from '@/store/index'
+import API from './api'
 export default {
     data() {
         return {
-            height:''
-        }
+            height: "",
+        };
     },
-    methods:{
-        setHeight () {
-            console.info(document.documentElement.clientHeight)
-           this.height =  document.documentElement.clientHeight - 80 +'px'
+    methods: {
+        setHeight() {
+            console.info(document.documentElement.clientHeight);
+            this.height = document.documentElement.clientHeight - 80 + "px";
         }
     },
     components: {
@@ -32,29 +32,34 @@ export default {
         Bread
     },
     computed: {
-        ...mapGetters(['isBreadToggle'])
+        ...mapGetters(["isBreadToggle","isLoading"])
     },
     mounted() {
-        window.addEventListener('resize',()=>{
-            this.setHeight()
-        })
+        window.addEventListener("resize", () => {
+            this.setHeight();
+        });
         this.setHeight();
+        setTimeout ( () =>{
+            this.loading2 = false
+        },4000)
+        API.GetLoginInfo()
     }
 };
 </script>
 
 <style lang='less' scoped>
-#contentApp{
+.contentApp {
     margin-top: 60px;
-    margin-left:200px;
+    margin-left: 200px;
     background-color: #fff;
-    transition: all ease-in-out .3s;
-    padding:10px;
-    .item{
-        height:600px;
+    transition: all ease-in-out 0.3s;
+    padding: 10px;
+    .item {
+        height: 600px;
     }
 }
-.marginLeft{
-      margin-left:64px;
+.marginLeft {
+    margin-left: 64px !important;
 }
+
 </style>

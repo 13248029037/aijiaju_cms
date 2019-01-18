@@ -5,4 +5,34 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 $--color-yellow:#f6b01c;
 $--color-purple:#5b3082;
 $--color-coffee:#944d2b;
-$--color-green:#c8ac00;
+$--color-orange:#c8ac00;
+$--color-apple:#6dac00;
+
+// reset css
+.el-message .el-icon-success,.el-message .el-icon-error{
+    color: white;
+    font-size:16px;
+}
+.el-message__content {
+    color: #fff !important;
+    font-size:16px  !important;
+}
+.el-message{
+    min-width:200px;
+}
+.el-message--success {
+    background-color:$--color-apple;
+    border-color: #e1f3d8;
+}
+.el-message--error {
+    background-color:#ec6b6a;
+    border-color: #fde2e2;
+    color:#fff
+}
+.el-message__closeBtn {
+    color:#fff;
+    font-size:16px;
+}
+.el-message__closeBtn:hover{
+    color:#eee
+}

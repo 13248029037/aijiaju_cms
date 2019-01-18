@@ -5,8 +5,7 @@ Vue.use(Elementui)
 import App from '@/App'
 import store from '@/store'
 import router from '@/router'
-console.info(router)
-console.info(store)
+import './utils/init'
 export default new Vue({
     el: '#app',
     render: h => h(App),
