@@ -5,6 +5,7 @@ const Home =  resolve => require(['../container/home/index.vue'], resolve)
 const Car =  resolve => require(['../container/car/index.vue'], resolve)
 const Shop =  resolve => require(['../container/shop/index.vue'], resolve)
 export default new VueRouter({
+    mode: 'history',
     routes:[
         {
             path:'/manager/home',
