@@ -42,7 +42,7 @@ export default {
         setTimeout ( () =>{
             this.loading2 = false
         },4000)
-        API.GetLoginInfo()
+        // API.GetLoginInfo()
     }
 };
 </script>
