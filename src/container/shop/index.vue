@@ -20,7 +20,7 @@
 <style lang='less' scoped>
 .content{
   min-height: 500px;
-  background-color: #5b3082;
+  background-color:#c8ac00;
 }
  
 </style>

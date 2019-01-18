@@ -2,7 +2,7 @@
     <div :class="{'nav_wrap':true,'topnav_box':true,'isBreadToggle':isBreadToggle}">
         <div class="home">
             <span class="iconfont icon-home icon"></span>
-            <span :class="{'text':true,'diappear':isBreadToggle}">爱回收</span>
+            <span :class="{'text':true,'diappear':isBreadToggle}">爱家居</span>
         </div>
         <el-menu @select="handleSelect" :unique-opened="true" text-color="#b4b7ba" background-color="#06152a" default-active="1-1" class="el-menu-vertical-demo" :collapse="isBreadToggle">
             <el-submenu :key="item.index" :index="item.index" v-for="item in (config.nav || [])">
