@@ -1,6 +1,6 @@
 <template>
  <div class="content">
-  car
+  爱家居，给你一个美好的家
  </div>
 </template>
 
@@ -22,5 +22,6 @@
  .content{
    min-height: 500px;
    background-color:#924b29;
+   color:lightseagreen;
  }
 </style>

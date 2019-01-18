@@ -1,6 +1,6 @@
 <template>
  <div class="content">
-home
+  爱家居，给你一个美好的家
  </div>
 </template>
 
@@ -21,6 +21,7 @@ home
  .content{
    min-height: 500px;
    background-color:#f6b01c;
+   color:green;
  }
  
 </style>
